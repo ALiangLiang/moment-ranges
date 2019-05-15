@@ -1,5 +1,5 @@
 {
-  "name": "moment-range",
+  "name": "moment-ranges",
   "description": "Fancy date ranges for Moment.js",
   "author": "Gianni Chiappetta <gianni@runlevel6.org> (https://butt.zone)",
   "contributors": [
@@ -24,9 +24,9 @@
     "Victoria French <victoria.french@cinecove.com> (https://github.com/victoriafrench)",
     "Jochen Diekenbrock (https://github.com/JochenDiekenbrock)"
   ],
-  "homepage": "https://github.com/rotaready/moment-range",
-  "bugs": "https://github.com/rotaready/moment-range/issues",
-  "main": "./dist/moment-range",
+  "homepage": "https://github.com/rotaready/moment-ranges",
+  "bugs": "https://github.com/rotaready/moment-ranges/issues",
+  "main": "./dist/moment-ranges",
   "version": "4.0.2",
   "engines": {
     "node": "*"
@@ -46,7 +46,7 @@
     "test": "karma start ./karma.conf.js",
     "version": "yarn build && cp ./lib/*.flow ./lib/*.d.ts ./dist"
   },
-  "typings": "./dist/moment-range.d.ts",
+  "typings": "./dist/moment-ranges.d.ts",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
@@ -78,7 +78,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git@github.com/rotaready/moment-range.git"
+    "url": "https://git@github.com/rotaready/moment-ranges.git"
   },
   "license": "Unlicense",
   "dependencies": {

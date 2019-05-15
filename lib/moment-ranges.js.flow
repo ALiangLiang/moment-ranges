@@ -1,6 +1,6 @@
 import type Moment from 'moment';
 
-declare module 'moment-range' {
+declare module 'moment-ranges' {
   declare type Base = (
     'year' | 'years' | 'y' |
     'month' | 'months' | 'M' |

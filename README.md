@@ -1,4 +1,4 @@
-# moment-range [![CircleCI](https://circleci.com/gh/rotaready/moment-range.svg?style=shield)](https://circleci.com/gh/rotaready/moment-range)
+# moment-ranges [![CircleCI](https://circleci.com/gh/rotaready/moment-ranges.svg?style=shield)](https://circleci.com/gh/rotaready/moment-ranges)
 
 Fancy date ranges for [Moment.js][moment].
 
@@ -50,21 +50,21 @@ Fancy date ranges for [Moment.js][moment].
 
 ## Installation
 
-moment-range works in both the browser and [node.js][node].
+moment-ranges works in both the browser and [node.js][node].
 
 ### Node / NPM
 
 Install via npm:
 
 ``` sh
-npm install --save moment-range
+npm install --save moment-ranges
 ```
 
 **ES6:**
 
 ``` js
 import Moment from 'moment';
-import { extendMoment } from 'moment-range';
+import { extendMoment } from 'moment-ranges';
 
 const moment = extendMoment(Moment);
 ```
@@ -73,7 +73,7 @@ const moment = extendMoment(Moment);
 
 ``` js
 const Moment = require('moment');
-const MomentRange = require('moment-range');
+const MomentRange = require('moment-ranges');
 
 const moment = MomentRange.extendMoment(Moment);
 ```
@@ -82,15 +82,15 @@ const moment = MomentRange.extendMoment(Moment);
 
 ``` html
 <script src="moment.js"></script>
-<script src="moment-range.js"></script>
+<script src="moment-ranges.js"></script>
 ```
 
 ``` js
-window['moment-range'].extendMoment(moment);
+window['moment-ranges'].extendMoment(moment);
 ```
 
-Thanks to the fine people at [cdnjs][cdnjs], you can link to moment-range from
-the [cdnjs servers][cdnjs-moment-range].
+Thanks to the fine people at [cdnjs][cdnjs], you can link to moment-ranges from
+the [cdnjs servers][cdnjs-moment-ranges].
 
 
 ### Older browsers and IE11
@@ -710,7 +710,7 @@ range.valueOf(); // 7945200000
 Clone this bad boy:
 
 ``` sh
-git clone https://git@github.com/rotaready/moment-range.git
+git clone https://git@github.com/rotaready/moment-ranges.git
 ```
 
 Install the dependencies:
@@ -753,14 +753,14 @@ yarn run lint
 
 ## License
 
-moment-range is [UNLICENSED][unlicense].
+moment-ranges is [UNLICENSED][unlicense].
 
 [add]: http://momentjs.com/docs/#/manipulating/add/
 [babel runtime transform plugin]: https://babeljs.io/docs/plugins/transform-runtime
 [babel polyfill]: https://babeljs.io/docs/usage/polyfill
 [broad support]: http://kangax.github.io/compat-table/es6/#test-well-known_symbols_Symbol.iterator,_existence_a_href=_https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator_title=_MDN_documentation_img_src=_../mdn.png_alt=_MDN_(Mozilla_Development_Network)_logo_width=_15_height=_13_/_/a_nbsp;
 [cdnjs]: https://github.com/cdnjs/cdnjs
-[cdnjs-moment-range]: https://cdnjs.com/libraries/moment-range
+[cdnjs-moment-ranges]: https://cdnjs.com/libraries/moment-ranges
 [interval]: http://en.wikipedia.org/wiki/ISO_8601#Time_intervals
 [iterable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#Syntaxes_expecting_iterables
 [iteration protocols]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols

@@ -1,12 +1,11 @@
-// @flow
-
-import M from 'moment';
-import { DateRange, extendMoment } from 'moment-range';
+import * as M from 'moment';
+import {DateRange, extendMoment} from 'moment-ranges';
 
 const moment = extendMoment(M);
 
+
 //-----------------------------------------------------------------------------
-// Flow Tests
+// Typescript Tests
 //-----------------------------------------------------------------------------
 
 moment.range(new Date(), new Date());
@@ -53,17 +52,17 @@ range002.add(new DateRange('month'));
 // By
 const range003 = new DateRange('year');
 range003.by('months');
-range003.by('months', { excludeEnd: true });
-range003.by('months', { exclusive: true }); // DEPRECATED 4.0.0
-range003.by('months', { step: 2 });
-range003.by('months', { excludeEnd: true, step: 2 });
-range003.by('months', { exclusive: true, step: 2 }); // DEPRECATED 4.0.0
+range003.by('months', {excludeEnd: true});
+range003.by('months', {exclusive: true}); // DEPRECATED 4.0.0
+range003.by('months', {step: 2});
+range003.by('months', {excludeEnd: true, step: 2});
+range003.by('months', {exclusive: true, step: 2}); // DEPRECATED 4.0.0
 
 // By Range
 const range004 = new DateRange('year');
 range004.byRange(new DateRange('month'));
-range004.byRange(new DateRange('month'), { excludeEnd: true });
-range004.byRange(new DateRange('month'), { exclusive: true }); // DEPRECATED 4.0.0
+range004.byRange(new DateRange('month'), {excludeEnd: true});
+range004.byRange(new DateRange('month'), {exclusive: true}); // DEPRECATED 4.0.0
 
 // Center
 const range005 = new DateRange('year');
@@ -78,21 +77,18 @@ const range007 = new DateRange('year');
 range007.contains(new Date());
 range007.contains(new DateRange('day'));
 range007.contains(moment());
-range007.contains(new Date(), { excludeStart: true });
-range007.contains(new DateRange('day'), { excludeStart: true });
-range007.contains(moment(), { excludeStart: true });
-range007.contains(new Date(), { excludeEnd: true });
-range007.contains(new DateRange('day'), { excludeEnd: true });
-range007.contains(moment(), { excludeEnd: true });
-range007.contains(new Date(), { excludeStart: true, excludeEnd: true });
-range007.contains(new DateRange('day'), {
-  excludeStart: true,
-  excludeEnd: true
-});
-range007.contains(moment(), { excludeStart: true, excludeEnd: true });
-range007.contains(new Date(), { exclusive: true }); // DEPRECATED 4.0.0
-range007.contains(new DateRange('day'), { exclusive: true }); // DEPRECATED 4.0.0
-range007.contains(moment(), { exclusive: true }); // DEPRECATED 4.0.0
+range007.contains(new Date(), {excludeStart: true});
+range007.contains(new DateRange('day'), {excludeStart: true});
+range007.contains(moment(), {excludeStart: true});
+range007.contains(new Date(), {excludeEnd: true});
+range007.contains(new DateRange('day'), {excludeEnd: true});
+range007.contains(moment(), {excludeEnd: true});
+range007.contains(new Date(), {excludeStart: true, excludeEnd: true});
+range007.contains(new DateRange('day'), {excludeStart: true, excludeEnd: true});
+range007.contains(moment(), {excludeStart: true, excludeEnd: true});
+range007.contains(new Date(), {exclusive: true}); // DEPRECATED 4.0.0
+range007.contains(new DateRange('day'), {exclusive: true}); // DEPRECATED 4.0.0
+range007.contains(moment(), {exclusive: true}); // DEPRECATED 4.0.0
 
 // Diff
 const range008 = new DateRange('year');
@@ -121,22 +117,22 @@ range012.isSame(new DateRange('month'));
 // Overlaps
 const range013 = new DateRange('year');
 range013.overlaps(new DateRange('month'));
-range013.overlaps(new DateRange('month'), { adjacent: true });
+range013.overlaps(new DateRange('month'), {adjacent: true});
 
 // Reverse By
 const range014 = new DateRange('year');
 range014.reverseBy('months');
-range014.reverseBy('months', { excludeStart: true });
-range014.reverseBy('months', { exclusive: true }); // DEPRECATED 4.0.0
-range014.reverseBy('months', { step: 2 });
-range014.reverseBy('months', { excludeStart: true, step: 2 });
-range014.reverseBy('months', { exclusive: true, step: 2 }); // DEPRECATED 4.0.0
+range014.reverseBy('months', {excludeStart: true});
+range014.reverseBy('months', {exclusive: true}); // DEPRECATED 4.0.0
+range014.reverseBy('months', {step: 2});
+range014.reverseBy('months', {excludeStart: true, step: 2});
+range014.reverseBy('months', {exclusive: true, step: 2}); // DEPRECATED 4.0.0
 
 // Reverse By Range
 const range015 = new DateRange('year');
 range015.reverseByRange(new DateRange('month'));
-range015.reverseByRange(new DateRange('month'), { excludeStart: true });
-range015.reverseByRange(new DateRange('month'), { exclusive: true }); // DEPRECATED 4.0.0
+range015.reverseByRange(new DateRange('month'), {excludeStart: true});
+range015.reverseByRange(new DateRange('month'), {exclusive: true}); // DEPRECATED 4.0.0
 
 // SnapTo
 const range016 = new DateRange('year');
@@ -153,10 +149,7 @@ range018.toDate();
 // To String
 const range019 = new DateRange('year');
 range019.toString();
-/* eslint-disable no-unused-expressions */
-// $FlowIssue: https://github.com/facebook/flow/issues/2814
 range019 + '';
-/* eslint-enable no-unused-expressions */
 
 // Value Of
 const range020 = new DateRange('year');
@@ -165,6 +158,4 @@ range020.valueOf();
 
 // Access to moment methods
 moment.duration();
-/* eslint-disable no-unused-expressions */
 moment.HTML5_FMT.DATE;
-/* eslint-enable no-unused-expressions */

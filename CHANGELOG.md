@@ -136,7 +136,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 * Updated contributors in *package.json*
-* Updated usage instructions for browsers (`window['moment-range']`)
+* Updated usage instructions for browsers (`window['moment-ranges']`)
 * Moved `expect.js` from dependencies to development dependencies
 
 
@@ -187,9 +187,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * Fixed issue with `moment#within` and moment-timezone (#127)
 * Fixed typo in comment (#133)
 
-[Unreleased]: https://github.com/rotaready/moment-range/compare/v3.1.0...HEAD
-[3.0.3]: https://github.com/rotaready/moment-range/compare/v3.0.3...v3.1.0
-[3.0.2]: https://github.com/rotaready/moment-range/compare/v3.0.2...v3.0.3
-[3.0.2]: https://github.com/rotaready/moment-range/compare/v3.0.1...v3.0.2
-[3.0.1]: https://github.com/rotaready/moment-range/compare/v3.0.0...v3.0.1
-[3.0.0]: https://github.com/rotaready/moment-range/compare/v1.0.5...v3.0.1
+[Unreleased]: https://github.com/rotaready/moment-ranges/compare/v3.1.0...HEAD
+[3.0.3]: https://github.com/rotaready/moment-ranges/compare/v3.0.3...v3.1.0
+[3.0.2]: https://github.com/rotaready/moment-ranges/compare/v3.0.2...v3.0.3
+[3.0.2]: https://github.com/rotaready/moment-ranges/compare/v3.0.1...v3.0.2
+[3.0.1]: https://github.com/rotaready/moment-ranges/compare/v3.0.0...v3.0.1
+[3.0.0]: https://github.com/rotaready/moment-ranges/compare/v1.0.5...v3.0.1

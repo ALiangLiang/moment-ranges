@@ -1,4 +1,4 @@
-import type { DateRange } from 'moment-range';
+import type { DateRange } from 'moment-ranges';
 
 // flow-typed signature: 8b6a390c8f84a79f68a5ba41f3665db0
 // flow-typed version: 25c06ef4a8/moment_v2.x.x/flow_>=v0.28.x
@@ -231,7 +231,7 @@ declare class moment$Moment {
   static normalizeUnits(unit: string): string;
   static invalid(object: any): moment$Moment;
 
-  // moment-range additions
+  // moment-ranges additions
   fn: Object;
   static range(interval: string): DateRange;
   static range(start: Date, end: Date): DateRange;

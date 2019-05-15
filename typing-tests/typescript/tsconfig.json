@@ -13,12 +13,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "moment-range": ["../../lib/moment-range.d.ts", "../../lib/moment-range.js"]
+      "moment-ranges": ["../../lib/moment-ranges.d.ts", "../../lib/moment-ranges.js"]
     }
   },
   "files": [
-    "../../lib/moment-range.d.ts",
-    "./moment-range.test.ts"
+    "../../lib/moment-ranges.d.ts",
+    "./moment-ranges.test.ts"
   ],
   "sourceMap": true,
   "strict": true,
