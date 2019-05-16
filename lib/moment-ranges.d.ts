@@ -6,7 +6,7 @@ export class DateRanges {
   constructor(...ranges: DateRange[]);
   constructor(ranges: DateRange[]);
 
-  add(other: DateRange, options?: { adjacent?: boolean }): DateRanges;
+  add(other: DateRange | DateRanges, options?: { adjacent?: boolean }): DateRanges;
 
   clone(): DateRanges;
 
