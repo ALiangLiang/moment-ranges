@@ -1,7 +1,7 @@
 # moment-ranges [![CircleCI](https://circleci.com/gh/ALiangLiang/moment-ranges.svg?style=shield)](https://circleci.com/gh/ALiangLiang/moment-ranges)
 
 <p align="center">
-  <img src=".github/logo.png" alt="moment-ranges"/>
+  <img src=".github/logo.png" width="250px" alt="moment-ranges"/>
 </p>
 
 <p align="center">
@@ -121,11 +121,11 @@ const moment_e = new Date(2019, 10, 26);
 const moment_f = new Date(2019, 11, 3);
 const range_ef = moment.range(start3, end3);
 
-const ranges = moment.ranges(range1, range2, range3);
-// => DateRanges [moment.range(moment_a, end2), moment.range(start3, end3)]
+const ranges = moment.ranges(range_ac, range_bd, range_ef);
+// => DateRanges [moment.range(moment_a, moment_d), moment.range(moment_e, moment_f)]
 
 // Arrays work too:
-const ranges = moment.ranges([range1, range2, range3]);
+const ranges = moment.ranges([range_ac, range_bd, range_ef]);
 ```
 
 Because `range_ac` overlaps with `range_bd`, they merges into `range_ad`.
