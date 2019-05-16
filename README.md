@@ -1,4 +1,8 @@
-# moment-ranges [![CircleCI](https://circleci.com/gh/ALiangLiang/moment-ranges.svg?style=shield)](https://circleci.com/gh/ALiangLiang/moment-ranges)
+# moment-ranges
+![npm](https://img.shields.io/npm/v/moment-ranges.svg)
+[![CircleCI](https://circleci.com/gh/ALiangLiang/moment-ranges.svg?style=shield)](https://circleci.com/gh/ALiangLiang/moment-ranges)
+![npm type definitions](https://img.shields.io/npm/types/moment-ranges.svg)
+![NPM](https://img.shields.io/npm/l/moment-ranges.svg)
 
 <p align="center">
   <img src=".github/logo.png" width="250px" alt="moment-ranges"/>
