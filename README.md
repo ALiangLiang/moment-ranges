@@ -8,10 +8,12 @@
   Fancy date ranges for <a href="http://momentjs.com/">Moment.js</a> and <a href="https://github.com/rotaready/moment-range">moment-range</a>.
 </p>
 
-![npm](https://img.shields.io/npm/v/moment-ranges.svg)
-[![CircleCI](https://circleci.com/gh/ALiangLiang/moment-ranges.svg?style=shield)](https://circleci.com/gh/ALiangLiang/moment-ranges)
-![npm type definitions](https://img.shields.io/npm/types/moment-ranges.svg)
-![NPM](https://img.shields.io/npm/l/moment-ranges.svg)
+<p align="center">
+  <a href="https://www.npmjs.com/package/moment-ranges"><img alt="npm" src="https://img.shields.io/npm/v/moment-ranges.svg"></a>
+  <a href="https://circleci.com/gh/ALiangLiang/moment-ranges"><img alt="CircleCI" src="https://circleci.com/gh/ALiangLiang/moment-ranges.svg?style=shield"></a>
+  <a href="lib/moment-ranges.d.ts"><img alt="npm type definitions" src="https://img.shields.io/npm/types/moment-ranges.svg"></a>
+  <a href="LICENSE"><img alt="NPM" src="https://img.shields.io/npm/l/moment-ranges.svg"></a>
+</p>
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
