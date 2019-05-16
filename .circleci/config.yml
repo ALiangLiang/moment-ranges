@@ -23,8 +23,7 @@ jobs:
           command: |
             yarn test
             yarn lint
-            yarn check:flow
-            yarn check:typescript
+            yarn check
 
 workflows:
   version: 2

@@ -15,7 +15,6 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           cacheDirectory: '/tmp/',
-          plugins: ['transform-flow-strip-types'],
           presets: ['es2015', 'stage-0']
         }
       },
