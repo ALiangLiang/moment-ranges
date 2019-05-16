@@ -308,7 +308,7 @@ ranges_ac.intersect(ranges_bd); // DateRanges [moment.range(b, c)]
 ranges_ac            [---------------------]            intersect
 range_bd(ranges_bd)             [---------------------]
 ↓↓
-range_bc                        [----------]
+ranges_bc                        [----------]
 
          ...---------|----------|----------|----------|---------...
 moment               a          b          c          d
@@ -440,12 +440,19 @@ Check if two ranges are the same, i.e. their starts and ends are the same:
 const range1 = moment.range(new Date(2011, 2, 5), new Date(2011, 3, 15));
 const range2 = moment.range(new Date(2011, 2, 5), new Date(2011, 3, 15));
 const range3 = moment.range(new Date(2011, 3, 5), new Date(2011, 6, 15));
+const range4 = moment.range(new Date(2011, 3, 5), new Date(2011, 6, 15));
+const range5 = moment.range(new Date(2011, 4, 5), new Date(2011, 9, 15));
+const range6 = moment.range(new Date(2011, 4, 5), new Date(2011, 9, 15));
 
-range1.isSame(range2); // true
-range2.isSame(range3); // false
+const ranges1 = moment.ranges(range1, range2)
+const ranges2 = moment.ranges(range3, range4)
+const ranges3 = moment.ranges(range5, range6)
 
-range1.isEqual(range2); // true
-range2.isEqual(range3); // false
+ranges1.isSame(ranges2); // true
+ranges2.isSame(ranges3); // false
+
+ranges1.isEqual(ranges2); // true
+ranges2.isEqual(ranges3); // false
 ```
 
 #### Difference
