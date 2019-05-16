@@ -1,8 +1,9 @@
 {
   "name": "moment-ranges",
   "description": "Fancy date ranges for Moment.js",
-  "author": "Gianni Chiappetta <gianni@runlevel6.org> (https://butt.zone)",
+  "author": "Wei-Liang Liou <me@aliangliang.top>",
   "contributors": [
+    "Gianni Chiappetta <gianni@runlevel6.org> (https://butt.zone)",
     "Adam Biggs (lightmaker.com)",
     "Mats Julian Olsen (https://github.com/mewwts)",
     "Matt Patterson <matt@reprocessed.org> (http://reprocessed.org/)",
@@ -24,10 +25,10 @@
     "Victoria French <victoria.french@cinecove.com> (https://github.com/victoriafrench)",
     "Jochen Diekenbrock (https://github.com/JochenDiekenbrock)"
   ],
-  "homepage": "https://github.com/rotaready/moment-ranges",
-  "bugs": "https://github.com/rotaready/moment-ranges/issues",
+  "homepage": "https://github.com/ALiangLiang/moment-ranges",
+  "bugs": "https://github.com/ALiangLiang/moment-ranges/issues",
   "main": "./dist/moment-ranges",
-  "version": "4.0.2",
+  "version": "0.4.0.2",
   "engines": {
     "node": "*"
   },
@@ -70,18 +71,21 @@
     "karma-webpack": "^2.0.2",
     "mocha": "^2.5.3",
     "moment": "^2.24.0",
+    "moment-range": "^4.0.2",
     "typescript": "^3.3.3333",
     "webpack": "^2.2.1"
   },
   "peerDependencies": {
-    "moment": ">= 2"
+    "moment": ">= 2",
+    "moment-range": ">= 4"
   },
   "repository": {
     "type": "git",
-    "url": "https://git@github.com/rotaready/moment-ranges.git"
+    "url": "https://git@github.com/ALiangLiang/moment-ranges.git"
   },
   "license": "Unlicense",
   "dependencies": {
-    "es6-symbol": "^3.1.0"
+    "es6-symbol": "^3.1.0",
+    "merge-ranges": "^1.0.2"
   }
 }

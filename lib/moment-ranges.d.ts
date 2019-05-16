@@ -1,14 +1,10 @@
 import * as moment from 'moment';
+import { DateRange } from 'moment-range';
 import {Moment, unitOfTime} from 'moment';
 
-export class DateRange {
-  start: Moment;
-  end: Moment;
-
-  constructor(start: Date | Moment, end: Date | Moment);
-  constructor(range: [Date | Moment, Date | Moment]);
-  constructor(range: string);
-  constructor();
+export class DateRanges {
+  constructor(...ranges: DateRange[]);
+  constructor(ranges: DateRange[]);
 
   adjacent(other: DateRange): boolean;
 
@@ -26,21 +22,21 @@ export class DateRange {
 
   clone(): DateRange;
 
-  contains(other: Date | DateRange | Moment, options?: { excludeStart?: boolean; excludeEnd?: boolean; }): boolean;
+  contains(other: Date | DateRange | Moment, options?: { excludeStart?: boolean; excludeEnd?: boolean; }): DateRange;
   // @deprecated 4.0.0
-  contains(other: Date | DateRange | Moment, options?: { exclusive?: boolean; }): boolean;
+  contains(other: Date | DateRange | Moment, options?: { exclusive?: boolean; }): DateRange;
 
   diff(unit?: unitOfTime.Diff, precise?: boolean): number;
 
   duration(unit?: unitOfTime.Diff, precise?: boolean): number;
 
-  intersect(other: DateRange): DateRange | null;
+  intersect(other: DateRange): DateRanges | null;
 
-  isEqual(other: DateRange): boolean;
+  isEqual(other: DateRanges): boolean;
 
-  isSame(other: DateRange): boolean;
+  isSame(other: DateRanges): boolean;
 
-  overlaps(other: DateRange, options?: { adjacent?: boolean; }): boolean;
+  overlaps(other: DateRange, options?: { adjacent?: boolean; }): DateRanges;
 
   reverseBy(interval: unitOfTime.Diff, options?: { excludeStart?: boolean; step?: number; }): Iterable<Moment>;
   // @deprecated 4.0.0
