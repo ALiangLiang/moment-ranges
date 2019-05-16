@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  Fancy date ranges for [Moment.js][moment] and [moment-range][moment-range].
+  Fancy date ranges for <a href="http://momentjs.com/">Moment.js</a> and <a href="https://github.com/rotaready/moment-range">moment-range</a>.
 </p>
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -493,8 +493,6 @@ moment-ranges is [MIT license][mit].
 [interval]: http://en.wikipedia.org/wiki/ISO_8601#Time_intervals
 [iterable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#Syntaxes_expecting_iterables
 [iteration protocols]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
-[moment]: http://momentjs.com/
-[moment-range]: https://github.com/rotaready/moment-range
 [node]: http://nodejs.org/
 [mit]: https://opensource.org/licenses/MIT
 [parseZone]: https://momentjs.com/docs/#/parsing/parse-zone/
