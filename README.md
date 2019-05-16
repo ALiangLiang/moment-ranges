@@ -59,9 +59,10 @@ npm install --save moment-ranges
 
 ``` js
 import Moment from 'moment';
+import { extendMoment as rangeExtendMoment } from 'moment-range';
 import { extendMoment } from 'moment-ranges';
 
-const moment = extendMoment(Moment);
+const moment = extendMoment(rangeExtendMoment(Moment));
 ```
 
 **CommonJS:**
@@ -83,11 +84,11 @@ const moment = MomentRanges.extendMoment(MomentRange.extendMoment(Moment));
 ```
 
 ``` js
-window['moment-range'].extendMoment(moment);
+window['moment-ranges'].extendMoment(window['moment-range'].extendMoment(moment));
 ```
 
-Thanks to the fine people at [cdnjs][cdnjs], you can link to moment-ranges from
-the [cdnjs servers][cdnjs-moment-ranges].
+~~Thanks to the fine people at [cdnjs][cdnjs], you can link to moment-ranges from
+the [cdnjs servers][cdnjs-moment-ranges].~~
 
 ### Older browsers and IE11
 
