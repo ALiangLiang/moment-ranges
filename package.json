@@ -28,12 +28,13 @@
   "homepage": "https://github.com/ALiangLiang/moment-ranges",
   "bugs": "https://github.com/ALiangLiang/moment-ranges/issues",
   "main": "./dist/moment-ranges",
-  "version": "0.4.0",
+  "version": "0.8.7",
   "engines": {
     "node": "*"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "yarn.lock"
   ],
   "scripts": {
     "build": "webpack -p",
