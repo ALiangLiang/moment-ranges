@@ -1,6 +1,6 @@
 {
   "name": "moment-ranges",
-  "description": "Fancy date ranges for Moment.js",
+  "description": "Fancy date ranges for Moment.js and moment-range",
   "author": "Wei-Liang Liou <me@aliangliang.top>",
   "contributors": [
     "Gianni Chiappetta <gianni@runlevel6.org> (https://butt.zone)",
@@ -83,7 +83,7 @@
     "type": "git",
     "url": "https://git@github.com/ALiangLiang/moment-ranges.git"
   },
-  "license": "Unlicense",
+  "license": "MIT",
   "dependencies": {
     "merge-ranges": "^1.0.2"
   }
