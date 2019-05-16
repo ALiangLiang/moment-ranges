@@ -176,8 +176,6 @@ Check to see if your date-ranges contains a date/moment/range. By default the st
 dates are included in the search. E.g.:
 
 ``` js
-const ranges_ab_cd = moment.ranges(range_ab, range_cd);
-
 // Ranges-Range
 ranges_ab_cd.contains(range_ab); // true
 ranges_ab_cd.contains(range_cd); // true
