@@ -1,9 +1,16 @@
-# moment-ranges [![CircleCI](https://circleci.com/gh/rotaready/moment-ranges.svg?style=shield)](https://circleci.com/gh/rotaready/moment-ranges)
+# moment-ranges [![CircleCI](https://circleci.com/gh/ALiangLiang/moment-ranges.svg?style=shield)](https://circleci.com/gh/ALiangLiang/moment-ranges)
 
-Fancy date ranges for [Moment.js][moment] and [moment-range][moment-range].
+<p align="center">
+  <img src=".github/logo.png" alt="moment-ranges"/>
+</p>
+
+<p align="center">
+  Fancy date ranges for [Moment.js][moment] and [moment-range][moment-range].
+</p>
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 
 - [Installation](#installation)
   - [Node / NPM](#node--npm)
@@ -13,23 +20,15 @@ Fancy date ranges for [Moment.js][moment] and [moment-range][moment-range].
   - [Create](#create)
   - [Inherit from Array](#inherit-from-array)
   - [Querying](#querying)
-    - [Adjacent](#adjacent)
-    - [Center](#center)
     - [Contains](#contains)
     - [Within](#within)
     - [Overlaps](#overlaps)
     - [Intersect](#intersect)
-    - [IsRange](#isrange)
+    - [IsRanges](#isranges)
   - [Manipulation](#manipulation)
     - [Add](#add)
     - [Clone](#clone)
-    - [SnapTo](#snapto)
     - [Subtract](#subtract)
-  - [Iteration](#iteration)
-    - [by](#by)
-    - [byRange](#byrange)
-    - [reverseBy](#reverseby)
-    - [reverseByRange](#reversebyrange)
   - [Compare](#compare)
     - [Equality](#equality)
     - [Difference](#difference)
@@ -39,6 +38,7 @@ Fancy date ranges for [Moment.js][moment] and [moment-range][moment-range].
     - [`valueOf`](#valueof)
 - [Running Tests](#running-tests)
 - [Contributors](#contributors)
+  - [Contributors of moment-range](#contributors-of-moment-range)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -182,9 +182,6 @@ range.contains(a, { excludeStart: true }); // false
 range.contains(c); // true
 range.contains(c, { excludeEnd: true; }); // false
 ```
-
-**DEPRECATED** in `4.0.0`: The `exclusive` options is used to indicate if the start/end of
-the range should be excluded when testing for inclusion:
 
 **Note**: You can obtain the same functionality by setting `{ excludeStart:
 true, excludeEnd: true }`
