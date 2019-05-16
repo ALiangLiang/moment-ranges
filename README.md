@@ -284,7 +284,7 @@ ranges_ac.overlaps(range_cd, { adjacent: true })  // true
 ```text
 ranges_ac       (---------------------)            overlaps
 range_bc                   (----------)            => true
-range_cd                              (----------) => true
+range_cd                              (----------) => false
 
 ranges_ac       [---------------------]            overlaps (adjacent)
 range_cd                              [----------] => true
