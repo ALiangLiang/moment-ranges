@@ -520,7 +520,9 @@ interval][interval] concatenated by comma:
 const range1 = moment.range(moment.utc('2015-01-17T09:50:04+08:00'), moment.utc('2015-04-17T08:29:55+08:00'));
 const range2 = moment.range(moment.utc('2015-03-10T02:70:04+08:00'), moment.utc('2015-03-20T07:56:51+08:00'));
 
-range.toString()
+const ranges = moment.ranges(range1, range2)
+
+ranges.toString()
 // "2015-01-17T09:50:04+08:00/2015-04-17T08:29:55+08:00,2015-03-10T02:70:04+08:00/2015-03-20T07:56:51+08:00"
 ```
 
