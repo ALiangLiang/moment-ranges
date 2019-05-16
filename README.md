@@ -21,7 +21,7 @@
   - [Inherit from Array](#inherit-from-array)
   - [Querying](#querying)
     - [Contains](#contains)
-    - [Within](#within)
+    - [~~Within~~](#within)
     - [Overlaps](#overlaps)
     - [Intersect](#intersect)
     - [IsRanges](#isranges)
@@ -109,23 +109,35 @@ the following should work, depending on your project configuration:
 Create a date-ranges with date-range(s), and also sort and merge overlapping ranges:
 
 ``` js
-const start1 = new Date(2009, 1, 8);
-const end1   = new Date(2012, 3, 7);
-const range1 = moment.range(start1, end1);
+const moment_a = new Date(2009, 1, 8);
+const moment_c = new Date(2012, 3, 7);
+const range_ac = moment.range(moment_a, moment_c);
 
-const start2 = new Date(2012, 0, 15);
-const end2   = new Date(2012, 4, 23);
-const range2 = moment.range(start2, end2);
+const moment_b = new Date(2012, 0, 15);
+const moment_d = new Date(2012, 4, 23);
+const range_bd = moment.range(start2, end2);
 
-const start3 = new Date(2019, 10, 26);
-const end3   = new Date(2019, 11, 3);
-const range3 = moment.range(start3, end3);
+const moment_e = new Date(2019, 10, 26);
+const moment_f = new Date(2019, 11, 3);
+const range_ef = moment.range(start3, end3);
 
 const ranges = moment.ranges(range1, range2, range3);
-// => DateRanges [moment.range(start1, end2), moment.range(start3, end3)]
+// => DateRanges [moment.range(moment_a, end2), moment.range(start3, end3)]
 
 // Arrays work too:
 const ranges = moment.ranges([range1, range2, range3]);
+```
+
+Because `range_ac` overlaps with `range_bd`, they merges into `range_ad`.
+
+```text
+range_ac        [---------------------]
+range_bd                   [---------------------]
+range_ef                                             [---------]
+ranges_ad_ef    [--------------------------------]   [---------]
+
+    ...---------|----------|----------|----------|---|---------|---...
+moment          a          b          c          d   e         f
 ```
 
 ### Inherit from Array
@@ -147,15 +159,15 @@ ranges.filter((range) => range > moment.duration(1, 'days'))
 Many of the following examples make use of these moments:
 
 ``` js
-const a = moment('2016-03-10');
-const b = moment('2016-03-15');
-const c = moment('2016-03-29');
-const d = moment('2016-04-01');
+const moment_a = moment('2016-03-10');
+const moment_b = moment('2016-03-15');
+const moment_c = moment('2016-03-29');
+const moment_d = moment('2016-04-01');
 
-const range_ab = moment.range(a, b);
-const range_bc = moment.range(b, c);
-const range_cd = moment.range(c, d);
-const range_ad = moment.range(a, d);
+const range_ab = moment.range(moment_a, moment_b);
+const range_bc = moment.range(moment_b, moment_c);
+const range_cd = moment.range(moment_c, moment_d);
+const range_ad = moment.range(moment_a, moment_d);
 ```
 
 #### Contains
@@ -166,42 +178,72 @@ dates are included in the search. E.g.:
 ``` js
 const ranges_ab_cd = moment.ranges(range_ab, range_cd);
 
+// Ranges-Range
 ranges_ab_cd.contains(range_ab); // true
 ranges_ab_cd.contains(range_cd); // true
 ranges_ab_cd.contains(range_bc); // false
 ranges_ab_cd.contains(range_ad); // false
+// Ranges-Moment
+ranges_ac.contains(moment_b);    // true
+// Ranges-Ranges
+ranges_ac.contains(ranges_ab);   // true
+```
+
+```text
+ranges_ab_cd    [----------]          [----------] contains
+range_ab        [----------]                       => true
+range_cd                              [----------] => true
+range_bc                   [----------]            => false
+range_ad        [--------------------------------] => false
+
+ranges_ad       [--------------------------------] contains
+moment_b                   |                       => true
+ranges_ab_cd    [----------]          [----------] => true
+
+    ...---------|----------|----------|----------|---------...
+moment          a          b          c          d
 ```
 
 You can also control whether the start or end dates should be excluded from the
 search with the `excludeStart` and `excludeEnd` options:
 
 ``` js
-const range = moment.range(a, c);
+// Ranges-Moment
+ranges_ab_cd.contains(moment_c); // true
+ranges_ab_cd.contains(moment_c, { excludeStart: true }); // false
+ranges_ab_cd.contains(moment_b); // true
+ranges_ab_cd.contains(moment_b, { excludeEnd: true; }); // false
+// Ranges-Range
+ranges_ab_cd.contains(range_cd, { excludeEnd: true; }); // false
+// Ranges-Ranges
+ranges_ab_cd.contains(ranges_cd, { excludeEnd: true; }); // false
+```
 
-range.contains(a); // true
-range.contains(a, { excludeStart: true }); // false
-range.contains(c); // true
-range.contains(c, { excludeEnd: true; }); // false
+```text
+ranges_ab_cd    [----------]          [----------] contains
+moment_c                              |            => true
+moment_b                   |                       => true
+
+ranges_ab_cd    (----------]          (----------] contains (exclude start)
+moment_c                              |            => false
+
+ranges_ab_cd    [----------)          [----------) contains (exclude end)
+moment_b                   |                       => false
+range_cd                              [----------] => false
+ranges_cd                             [----------] => false
+
+    ...---------|----------|----------|----------|---------...
+moment          a          b          c          d
 ```
 
 **Note**: You can obtain the same functionality by setting `{ excludeStart:
 true, excludeEnd: true }`
 
-``` js
-range.contains(c); // true
-range.contains(c, { exclusive: false }); // true
-range.contains(c, { exclusive: true }); // false
-```
+#### ~~Within~~
 
-#### Within
-
-Find out if your moment or date-range falls within a date range:
+~~Find out if your moment or date-range falls within a date range:~~
 
 ``` js
-const range_ac = moment.range(a, c);
-const range_bd = moment.range(b, d);
-const ranges = moment.range(range_ac, range_bd);
-
 b.within(ranges); // true
 range_ac.within(ranges); // true
 ```
@@ -211,30 +253,39 @@ range_ac.within(ranges); // true
 Does it overlap another range?
 
 ``` js
-const range_ac = moment.range(a, c);
-const range_bd = moment.range(b, d);
-
-const ranges_ac = moment.range(range_ac);
-const ranges_bd = moment.range(range_bd);
-
-// ranges-ranges
+// Ranges-Ranges
 ranges_ac.overlaps(ranges_bd); // true
-
-// ranges-range
+// Ranges-Range
 ranges_ac.overlaps(range_bd); // true
+```
+
+```text
+ranges_ac       (---------------------)            overlaps
+ranges_bd                  (---------------------) => true
+range_bd                   (---------------------) => true
+
+    ...---------|----------|----------|----------|---------...
+moment          a          b          c          d
 ```
 
 Include adjacent ranges:
 
 ``` js
-const range_ab = moment.range(a, b);
-const range_bc = moment.range(b, c);
-const range_cd = moment.range(c, d);
-const ranges_ac = moment.range(range_ab, range_bc);
-
 ranges_ac.overlaps(range_bc)                      // true
 ranges_ac.overlaps(range_cd, { adjacent: false }) // false
 ranges_ac.overlaps(range_cd, { adjacent: true })  // true
+```
+
+```text
+ranges_ac       (---------------------)            overlaps
+range_bc                   (----------)            => true
+range_cd                              (----------) => true
+
+ranges_ac       [---------------------]            overlaps (adjacent)
+range_cd                              [----------] => true
+
+    ...---------|----------|----------|----------|---------...
+moment          a          b          c          d
 ```
 
 #### Intersect
@@ -242,11 +293,20 @@ ranges_ac.overlaps(range_cd, { adjacent: true })  // true
 What is the intersecting range?
 
 ``` js
-const range_ac = moment.range(a, c);
-const range_bd = moment.range(b, d);
-const ranges_ac = moment.range(range_ac);
-
+// Ranges-Range
 ranges_ac.intersect(range_bd); // DateRanges [moment.range(b, c)]
+// Ranges-Ranges
+ranges_ac.intersect(ranges_bd); // DateRanges [moment.range(b, c)]
+```
+
+```text
+ranges_ac            [---------------------]            intersect
+range_bd(ranges_bd)             [---------------------]
+↓↓
+range_bc                        [----------]
+
+         ...---------|----------|----------|----------|---------...
+moment               a          b          c          d
 ```
 
 #### IsRanges
@@ -265,47 +325,84 @@ moment.isRanges(IamNotRanges); // false
 Add/combine/merge overlapping or adjacent ranges.
 
 ``` js
-const range1 = moment.range(a, c);
-const range2 = moment.range(b, d);
-const ranges = moment.ranges(range1);
-ranges.add(range2); // DateRanges [moment.range(a, d)]
-// Merge into one date-range
+// Ranges-Range
+ranges_ac.add(range_bd); // DateRanges [moment.range(moment_a, moment_d)]
+// Merge into one date-range in date-ranges
 
-const range3 = moment.range(a, b);
-const range4 = moment.range(c, d);
-const ranges = moment.ranges(range4);
-ranges.add(range3); // DateRanges [moment.range(a, b), moment.range(c d)]
+// Ranges-Ranges
+ranges_cd.add(ranges_ab); // DateRanges [moment.range(moment_a, moment_b), moment.range(moment_c moment_d)]
 // No merge but sorted
+```
+
+```text
+ranges_ac       [---------------------]            add
+range_bd                   [---------------------]
+↓↓
+ranges_ad       [--------------------------------]
+
+ranges_cd                             [----------] add
+ranges_ab       [----------]
+↓↓
+ranges_ab_cd    [----------]          [----------]
+
+    ...---------|----------|----------|----------|---------...
+moment          a          b          c          d
 ```
 
 #### Clone
 
-Deep clone a range
+Deep clone a ranges
 
 ``` js
-const range1 = moment.range(a, d);
-const ranges1 = moment.ranges(range1)
+const cloned_ranges_ab = ranges_ab.clone();
+cloned_ranges_ab[0].start.add(2, 'days');
 
-const range2 = range1.clone();
-const ranges2 = moment.ranges(range2)
-ranges2[0].start.add(2, 'days');
+cloned_ranges_ab[0].start.toDate().valueOf() === cloned_ranges_ab[0].start.toDate().valueOf() // false
+```
 
-range1.start.toDate().valueOf() === range2.start.toDate().valueOf() // false
+```text
+ranges_ab          [----------] clone
+↓↓
+cloned_ranges_ab   [----------]
+
+       ...---------|----------|---------...
+moment             a          b
 ```
 
 #### Subtract
 
-Subtracting one range from another.
+Subtracting one range from another ranges or range.
 
 ``` js
-const range_ab = moment.range(a, b);
-const range_bc = moment.range(b, c);
-const range_cd = moment.range(c, d);
-const range_ad = moment.range(a, d);
-range_ad.subtract(range_bc); // [moment.range(a, b) moment.range(c, d)]
-range_ac.subtract(range_bc); // [moment.range(a, b)]
-range_ab.subtract(range_cd); // [moment.range(a, b)]
-range_bc.subtract(range_bd); // [null]
+ranges_ad.subtract(range_bc); // [moment.range(moment_a, moment_b) moment.range(moment_c, moment_d)]
+ranges_ac.subtract(range_bc); // [moment.range(moment_a, moment_b)]
+ranges_ab.subtract(range_bc); // [moment.range(moment_a, moment_b)]
+ranges_ab.subtract(range_ac); // []
+```
+
+```text
+ranges_ad       [--------------------------------] subtract
+range_bc                   [----------]
+↓↓
+ranges_ab_cd    [----------]          [----------]
+
+ranges_ac       [---------------------]            subtract
+range_bc                   [----------]
+↓↓
+ranges_ab       [----------]
+
+ranges_ab       [----------]                       subtract
+range_bc                   [----------]
+↓↓
+ranges_ab       [----------]
+
+ranges_ab       [----------]                       subtract
+range_ac        [---------------------]
+↓↓
+ranges_empty
+
+    ...---------|----------|----------|----------|---------...
+moment          a          b          c          d
 ```
 
 ### Compare
