@@ -15,7 +15,13 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           cacheDirectory: '/tmp/',
-          presets: ['es2015', 'stage-0']
+          presets: ['es2015', 'stage-0'],
+          plugins: [
+            [
+              'babel-plugin-transform-builtin-extend',
+              { globals: ['Array'] }
+            ]
+          ]
         }
       },
       {
@@ -42,9 +48,10 @@ module.exports = {
     library: 'moment-ranges',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist/'),
-    umdNamedDefine: true
+    globalObject: 'this'
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({ options: {}}),
     new webpack.NoEmitOnErrorsPlugin()
   ]
 };
