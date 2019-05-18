@@ -8,11 +8,11 @@ const range_ac = moment.range(moment_a, moment_c);
 
 const moment_b = new Date(2012, 0, 15);
 const moment_d = new Date(2012, 4, 23);
-const range_bd = moment.range(start2, end2);
+const range_bd = moment.range(moment_b, moment_d);
 
 const moment_e = new Date(2019, 10, 26);
 const moment_f = new Date(2019, 11, 3);
-const range_ef = moment.range(start3, end3);
+const range_ef = moment.range(moment_e, moment_f);
 
 const ranges_ad_ef = moment.ranges(range_ac, range_bd, range_ef);
 // => DateRanges [moment.range(moment_a, moment_d), moment.range(moment_e, moment_f)]
