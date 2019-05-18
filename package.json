@@ -85,8 +85,6 @@
     "url": "https://git@github.com/ALiangLiang/moment-ranges.git"
   },
   "license": "MIT",
-  "dependencies": {
-    "merge-ranges": "^1.0.2"
-  },
+  "dependencies": {},
   "runkitExampleFilename": "example.js"
 }
