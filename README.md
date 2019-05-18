@@ -59,27 +59,30 @@ moment-ranges works in both the browser and [node.js][node].
 Install via npm:
 
 ``` sh
-npm install --save moment-ranges
+// "moment-ranges" has two peer dependencies "moment" and "moment-range".
+npm install --save moment moment-range moment-ranges
 ```
 
 **ES6:**
 
 ``` js
-import Moment from 'moment';
+import moment from 'moment';
 import { extendMoment as rangeExtendMoment } from 'moment-range';
 import { extendMoment } from 'moment-ranges';
 
-const moment = extendMoment(rangeExtendMoment(Moment));
+rangeExtendMoment(moment);
+extendMoment(moment);
 ```
 
 **CommonJS:**
 
 ``` js
-const Moment = require('moment');
+const moment = require('moment');
 const MomentRange = require('moment-range');
 const MomentRanges = require('moment-ranges');
 
-const moment = MomentRanges.extendMoment(MomentRange.extendMoment(Moment));
+MomentRange.extendMoment(moment);
+MomentRanges.extendMoment(moment);
 ```
 
 ### Browser
@@ -91,7 +94,8 @@ const moment = MomentRanges.extendMoment(MomentRange.extendMoment(Moment));
 ```
 
 ``` js
-window['moment-ranges'].extendMoment(window['moment-range'].extendMoment(moment));
+window['moment-range'].extendMoment(moment);
+window['moment-ranges'].extendMoment(moment);
 ```
 
 ~~Thanks to the fine people at [cdnjs][cdnjs], you can link to moment-ranges from
