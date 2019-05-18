@@ -34,7 +34,8 @@
   },
   "files": [
     "dist/",
-    "yarn.lock"
+    "yarn.lock",
+    "example.js"
   ],
   "scripts": {
     "build": "webpack -p",
