@@ -28,7 +28,7 @@
   "homepage": "https://github.com/ALiangLiang/moment-ranges",
   "bugs": "https://github.com/ALiangLiang/moment-ranges/issues",
   "main": "./dist/moment-ranges",
-  "version": "0.8.10",
+  "version": "0.8.11",
   "engines": {
     "node": "*"
   },
